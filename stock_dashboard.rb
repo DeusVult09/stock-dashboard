@@ -8,11 +8,16 @@ set :public_folder, File.dirname(__FILE__) + '/public'
 class AlphaAdvantClient
   BASE_URL = "https://alphavantage.co/query"
   TIME_MAP = { '1D' => 'TIME_SERIES_DAILY', '1M' => 'TIME_SERIES_DAILY', '1Y' => 'TIME_SERIES_WEEKLY'}
-    
+
   def find_stock_data(input, timeframe)
-    query_params = { function: TIME_MAP[timeframe], symbol: input.to_s.upcase.strip, apikey: ENV['ALPHAVANTAGE_KEY'] }
-    response = HTTParty.get(BASE_URL, query: query_params)
-    response.success? ? response.parsed_response : { "error" => "Network failure" }
+    function = TIME_MAP[timeframe]
+    return { "error" => "Invalid timeframe" } unless function 
+    response = HTTParty.get(BASE_URL, query: { function: function, symbol: input.to_s.upcase.strip, apikey: ENV['ALPHAVANTAGE_KEY'] })
+    return { "error" => "Network failure" } unless response.success?
+
+    data = JSON.parse(response.body)
+    msg = data["Error Message"] || data["Note"] || data["Information"]
+    msg ? { "error" => msg } : data
   end
 end
 
