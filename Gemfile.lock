@@ -5,6 +5,8 @@ GEM
       faraday (~> 1.4)
       hashie (~> 4.1)
     base64 (0.3.0)
+    bigdecimal (4.1.3)
+    csv (3.3.6)
     dotenv (3.2.0)
     faraday (1.10.6)
       faraday-em_http (~> 1.0)
@@ -30,7 +32,14 @@ GEM
     faraday-rack (1.0.0)
     faraday-retry (1.0.4)
     hashie (4.1.0)
+    httparty (0.24.3)
+      csv
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     logger (1.7.0)
+    mini_mime (1.1.5)
+    multi_xml (0.9.1)
+      bigdecimal (>= 3.1, < 5)
     multipart-post (2.4.1)
     mustermann (3.1.1)
     nio4r (2.7.5)
@@ -72,6 +81,7 @@ PLATFORMS
 DEPENDENCIES
   alphavantage
   dotenv
+  httparty
   puma
   rackup
   sinatra
@@ -79,6 +89,8 @@ DEPENDENCIES
 CHECKSUMS
   alphavantage (1.2.0) sha256=e83bfe9b787fce38d5179aa7681f1cf27dcc45824b8c1b9ccf81c08270a84d81
   base64 (0.3.0) sha256=27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b
+  bigdecimal (4.1.3) sha256=61ebe1e5e559bdc3cc6f2c0ee7f427321fc838f59611c294356eb04d6e21cf66
+  csv (3.3.6) sha256=aba61e7e507a66f03d45cb1f3c4b6359861c3504038b422962875dce099e4456
   dotenv (3.2.0) sha256=e375b83121ea7ca4ce20f214740076129ab8514cd81378161f11c03853fe619d
   faraday (1.10.6) sha256=7ff4802a6b312876a2241b3e641ce0d5045e168dd871b422c35b505e5261ad4d
   faraday-em_http (1.0.0) sha256=7a3d4c7079789121054f57e08cd4ef7e40ad1549b63101f38c7093a9d6c59689
@@ -92,7 +104,10 @@ CHECKSUMS
   faraday-rack (1.0.0) sha256=ef60ec969a2bb95b8dbf24400155aee64a00fc8ba6c6a4d3968562bcc92328c0
   faraday-retry (1.0.4) sha256=dc659233777fabf96c69c2ffe56c0a5d2c102af90321a42cc6c90157bcd716aa
   hashie (4.1.0) sha256=7890dcb9ec18a4b66acec797018c73824b89cef5eb8cda36e8e8501845e87a09
+  httparty (0.24.3) sha256=5c95cf29ca70d5bfd834e56140ddfca6e94166c3b870cde9c25d157cdb5a00d2
   logger (1.7.0) sha256=196edec7cc44b66cfb40f9755ce11b392f21f7967696af15d274dde7edff0203
+  mini_mime (1.1.5) sha256=8681b7e2e4215f2a159f9400b5816d85e9d8c6c6b491e96a12797e798f8bccef
+  multi_xml (0.9.1) sha256=7ce766b59c17241ed62976caeae1fae9b2431b263398c35396239a68c4a64e57
   multipart-post (2.4.1) sha256=9872d03a8e552020ca096adadbf5e3cb1cd1cdd6acd3c161136b8a5737cdb4a8
   mustermann (3.1.1) sha256=4c6170c7234d5499c345562ba7c7dfe73e1754286dcc1abb053064d66a127198
   nio4r (2.7.5) sha256=6c90168e48fb5f8e768419c93abb94ba2b892a1d0602cb06eef16d8b7df1dca1

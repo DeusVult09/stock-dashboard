@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visual Stock Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts@3"></script>
+</head>
+<body class="bg-gray-100 p-4 sm:p-6">
+  <h1 class="text-3xl font-bold text-center text-gray-800 tracking-tight mt-4">
+    Visual Stock Dashboard
+  </h1>
+
+  <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md p-6 space-y-6 mt-6">
+    <div id="row-wrapper" class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      
+      <select id="stock-ticker" class="block w-full sm:w-48 bg-gray-50 border border-gray-300 rounded-lg p-2.5 focus:ring-blue-500 focus:border-blue-500 font-medium text-sm text-gray-900">
+        <option value="AAPL" selected>Apple (AAPL)</option>
+        <option value="TSLA">Tesla (TSLA)</option>
+        <option value="MSFT">Microsoft (MSFT)</option>
+        <option value="AMZN">Amazon (AMZN)</option>
+      </select>
+
+      <div id="timeframe-controls" class="flex flex-row items-center gap-2 overflow-x-auto whitespace-nowrap">
+        <button type="button" class="tf-btn text-blue-600 bg-blue-50 border border-blue-600 font-medium rounded-lg text-sm px-4 py-2.5 focus:outline-none" data-timeframe="1D">1 Day</button> 
+        <button type="button" class="tf-btn text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 font-medium rounded-lg text-sm px-4 py-2.5 focus:outline-none" data-timeframe="1M">1 Month</button>
+        <button type="button" class="tf-btn text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 font-medium rounded-lg text-sm px-4 py-2.5 focus:outline-none" data-timeframe="1Y">1 Year</button>
+      </div>
+    </div>
+    
+    <p id="status" class="text-sm text-amber-600 min-h-5"></p>
+    <div class="relative">
+      <div id="loading" class="hidden absolute inset-0 bg-white/80 flex items-center justify-center font-semibold text-gray-500 z-10">Updating Chart...</div>
+      <div id="chart" class="w-full h-96"></div>
+    </div>
+  </div>
+ 
+  <script src="/app.js"></script>
+</body>
+</html>

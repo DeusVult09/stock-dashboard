@@ -6,3 +6,4 @@ gem 'rackup'
 gem 'puma'
 gem 'alphavantage'
 gem 'dotenv'
+gem "httparty"
