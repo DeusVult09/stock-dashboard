@@ -49,7 +49,7 @@ async function updateDashboard() {
     } else if (currentTimeframe === '1M') {
       formattedData = formattedData.slice(-22);
     } else {
-      formattedData = formattedData.slice(-52); // 1Y = last 52 weeks
+      formattedData = formattedData.slice(-52);
     }
 
     chart.updateOptions({
